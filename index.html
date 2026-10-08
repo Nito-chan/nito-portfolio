@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nitō — Websites that feel like films</title>
+  <meta name="description" content="Nitō builds immersive websites and AI automation for ambitious brands. Web dev, AI workflows, design and video. 30+ projects shipped.">
+  <link rel="canonical" href="https://nito.dpdns.org/">
+  <meta name="theme-color" content="#0A0A0E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nitō — Websites that feel like films">
+  <meta property="og:description" content="Immersive websites and AI automation for ambitious brands.">
+  <meta property="og:url" content="https://nito.dpdns.org/">
+  <meta property="og:image" content="https://nito.dpdns.org/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nitō — Websites that feel like films">
+  <meta name="twitter:description" content="Immersive websites and AI automation for ambitious brands.">
+  <meta name="twitter:image" content="https://nito.dpdns.org/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Nitō","jobTitle":"Full-Stack Engineer & AI Architect","url":"https://nito.dpdns.org/","sameAs":["https://github.com/Nito-chan","https://www.linkedin.com/in/nito-dev","https://www.instagram.com/nitodev.official/"]}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">N</span><span>Nitō</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ember btn-small magnetic" href="#contact">Start a project</a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="wrap">
+      <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile">
+        <a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a><a href="work.html">All work</a>
+      </nav>
+    </div>
+    <div class="progress-rail" aria-hidden="true"><i id="progressBar"></i></div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-h">
+      <canvas id="aurora" aria-hidden="true"></canvas>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker" data-hero>Freelance developer · AI automation · designer</p>
+          <h1 id="hero-h" data-hero>Websites with <span class="ember-word">a pulse.</span></h1>
+          <p class="sub" data-hero id="heroSub">I'm Nitō. I build immersive sites and AI workflows that save hours and convert visitors.</p>
+          <div class="hero-ctas" data-hero>
+            <a class="btn btn-ember magnetic" href="#contact">Start a project</a>
+            <a class="text-link" href="#work">See best work →</a>
+          </div>
+          <div class="hero-stats" data-hero id="heroStats">
+            <div><b><span data-count="30">30</span><em>+</em></b><span>projects shipped</span></div>
+            <div><b><span data-count="20">20</span><em>+</em></b><span>happy clients</span></div>
+            <div><b><span data-count="4">4</span><em>+</em></b><span>years experience</span></div>
+          </div>
+          <p class="scroll-hint" aria-hidden="true">scroll for the show</p>
+        </div>
+        <div data-hero>
+          <div class="term" role="img" aria-label="Deployment log showing a perfect launch">
+            <div class="term-bar" aria-hidden="true"><span class="traffic"><i></i><i></i><i></i></span><span>launch.log — live</span></div>
+            <div class="term-body" aria-hidden="true">
+              <div class="ln"><span class="ok">✓</span><span>site shipped · 30+ and counting</span></div>
+              <div class="ln"><span class="ok">✓</span><span>make.com scenario deployed · 300 mails/day</span></div>
+              <div class="ln"><span class="ok">✓</span><span>chatbot online · booking tickets live</span></div>
+              <div class="ln"><span class="wr">→</span><span>your project here_</span></div>
+            </div>
+            <div class="term-badges">
+              <div><b id="badgePerf">—</b><span>Lighthouse</span></div>
+              <div><b id="badgeA11y">—</b><span>A11y</span></div>
+              <div><b id="badgeWeight">—</b><span>Weight</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Services">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Web Development</span><span>AI Automation</span><span>UI / UX Design</span><span>Video Editing</span><span>Make.com Workflows</span><span>Landing Pages</span>
+      </div>
+    </div>
+
+    <section class="section" id="services" aria-labelledby="services-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Services</p>
+          <h2 id="services-h">One person, whole pipeline</h2>
+          <p>Design, code, automation, video — no handoffs, no telephone game.</p>
+        </div>
+        <div class="services-grid" id="servicesGrid" data-reveal="up"></div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Best work</p>
+          <h2 id="work-h">Six scenes, zero filler</h2>
+          <p>Curated highlights. The full lifetime collection lives on the archive page.</p>
+        </div>
+        <div class="bento" id="bento"></div>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Process</p>
+          <h2 id="process-h">From cold open to premiere</h2>
+          <p>Four acts. You always know what's shooting.</p>
+        </div>
+        <div class="stack" id="processStack"></div>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Craft</p>
+          <h2 id="skills-h">The toolkit</h2>
+          <p>Short, honest, automation-first.</p>
+        </div>
+        <div class="skills-grid" id="skillsGrid" data-reveal="up"></div>
+        <div class="tool-row" id="toolRow" style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:1.75rem"></div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="pricing-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Pricing</p>
+          <h2 id="pricing-h">Fixed prices, no fog</h2>
+          <p>INR equivalents shown smaller — approximate at ₹83/$. Invoices for everything.</p>
+        </div>
+        <div class="tiers" id="tiers" data-reveal="up"></div>
+      </div>
+    </section>
+
+    <section class="section" id="kind-words" aria-labelledby="quotes-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Reviews</p>
+          <h2 id="quotes-h">Audience reactions</h2>
+          <p>95% satisfaction · 4.9 average rating · revenue generated for clients and counting.</p>
+        </div>
+      </div>
+      <div class="quotes-wrap"><div class="quotes-track" id="quotesTrack"></div></div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Questions</p>
+          <h2 id="faq-h">Asked at every premiere</h2>
+        </div>
+        <div class="faq" id="faqList" data-reveal="up"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Director</p>
+          <h2 id="about-h">Hi, I'm Nitō</h2>
+        </div>
+        <div class="about-grid" data-reveal="up">
+          <div class="avatar" aria-hidden="true">N</div>
+          <div class="about-copy" id="aboutCopy">
+            <p>I'm Nitō — developer, automation nerd, designer.</p>
+            <p><a class="text-link" href="#">Download resume →</a></p>
+          </div>
+        </div>
+        <ol class="exp-list" id="expList" data-reveal="up"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal="up">
+          <p class="kicker">Contact</p>
+          <h2 id="contact-h">Roll credits on boring</h2>
+          <p>One message. I reply within 24 hours with next steps and a price.</p>
+        </div>
+        <div class="contact-grid" data-reveal="up">
+          <div class="form-card">
+            <form name="contact" method="POST" id="contactForm" novalidate>
+              <input type="hidden" name="_subject" value="New inquiry from Nitō's portfolio">
+              <p class="visually-hidden"><label>Do not fill this in: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+              <div class="field">
+                <label for="fName">Name</label>
+                <input id="fName" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="eName">
+                <span class="error-msg" id="eName" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="fEmail">Email</label>
+                <input id="fEmail" name="email" type="email" autocomplete="email" required aria-describedby="eEmail">
+                <span class="error-msg" id="eEmail" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="fService">Service needed</label>
+                <select id="fService" name="service"></select>
+              </div>
+              <div class="field">
+                <label for="fBudget">Budget</label>
+                <select id="fBudget" name="budget"></select>
+              </div>
+              <div class="field">
+                <label for="fMsg">Project details</label>
+                <textarea id="fMsg" name="message" required minlength="10" aria-describedby="eMsg" placeholder="What should your site make people feel?"></textarea>
+                <span class="error-msg" id="eMsg" aria-live="polite"></span>
+              </div>
+              <button class="btn btn-ember magnetic" type="submit" id="sendBtn">Send message</button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <aside class="contact-aside" aria-label="Other ways to reach me">
+            <div class="contact-line"><small>Email</small><a class="text-link" id="emailLink" href="mailto:nitodev.official@gmail.com">nitodev.official@gmail.com</a></div>
+            <div class="contact-line"><small>WhatsApp</small><a class="text-link" id="waLink" href="https://wa.me/919244760460" rel="noopener">Chat on WhatsApp →</a></div>
+            <div class="contact-line"><small>Book a call</small><a class="text-link" id="calLink" href="https://calendly.com/tanjiro-kamado9u/new-client" rel="noopener">Calendly — new client call →</a></div>
+            <div class="contact-line"><small>Freelance profiles</small><div class="social-row" id="gigRow"></div></div>
+            <div class="contact-line"><small>Elsewhere</small><div class="social-row" id="socialRow"></div></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale" aria-labelledby="finale-h">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="wrap" data-reveal="scale">
+        <h2 id="finale-h">Your brand deserves a premiere.</h2>
+        <p>Let's make something people remember.</p>
+        <a class="btn btn-ember magnetic" href="#contact">Start your scene</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p><strong id="footName">Nitō</strong> · <span id="footYear">2026</span></p>
+        <p class="fine">Built with HTML, CSS, JS and GSAP. <a class="text-link" href="https://github.com/Nito-chan/nito-portfolio">View source</a></p>
+      </div>
+      <div>
+        <ul class="footer-nav" id="footSocial"></ul>
+        <p><a class="text-link" href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="modal" id="caseModal" aria-labelledby="modalTitle">
+    <div class="modal-body">
+      <h3 id="modalTitle"></h3>
+      <p id="modalSummary" style="color:var(--text-muted)"></p>
+      <img id="modalShot" alt="" style="border-radius:12px;border:1px solid var(--border)" hidden>
+      <dl>
+        <div><dt>PROBLEM</dt><dd id="modalProblem"></dd></div>
+        <div><dt>WHAT I DID</dt><dd id="modalRole"></dd></div>
+        <div><dt>RESULT</dt><dd id="modalResult"></dd></div>
+      </dl>
+      <div class="tool-row" id="modalStack" style="display:flex;gap:.45rem;flex-wrap:wrap"></div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap" id="modalLinks">
+        <a class="text-link" id="modalLive" href="#">Live site →</a>
+      </div>
+      <form method="dialog"><button class="btn btn-ghost btn-small" type="submit">Close</button></form>
+    </div>
+  </dialog>
+
+  <script src="js/config.js" defer></script>
+  <script src="js/render.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/fx.js" defer></script>
+</body>
+</html>

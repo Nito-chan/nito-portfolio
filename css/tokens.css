@@ -1,0 +1,28 @@
+/* Ember cinema tokens. Single theme: obsidian + ember + teal + bone. */
+:root {
+  --bg: #0a0a0e;
+  --bg-soft: #0e0e14;
+  --surface: #14141c;
+  --surface-2: #1d1d28;
+  --glass: rgb(255 255 255 / 0.04);
+  --text: #efe9dc;
+  --text-muted: #b6ac9c;
+  --ember: #ff5c1a;
+  --ember-ink: #1c0a00;
+  --teal: #2dd4bf;
+  --violet: #8b5cf6;
+  --border: #2b2b38;
+  --success: #4ade80;
+  --focus: #ff5c1a;
+  --grain-opacity: 0.055;
+
+  --radius-sm: 10px;
+  --radius-lg: 20px;
+  --max-w: 1200px;
+  --header-h: 68px;
+  --font-display: "Syne", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-code: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --glow: 0 0 24px rgb(255 92 26 / 0.35);
+}

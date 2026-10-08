@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nito.dpdns.org/sitemap.xml
