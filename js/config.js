@@ -61,8 +61,7 @@ window.SITE = {
       problem: "A busy implant and surgery practice with no online presence; patients called for everything.",
       result: "Complete bilingual site with booking flow and patient reviews. Verified: 16 sections, zero console errors.",
       stack: ["Next.js", "React", "Tailwind", "Framer Motion"],
-      liveUrl: "", shot: "alameen",
-      note: "Client build — live URL on request",
+      liveUrl: "https://dr-osamah-ameen.vercel.app/", shot: "alameen",
       thumb: "ember", featured: true, cat: "Web", year: "2026"
     },
     {
@@ -72,8 +71,8 @@ window.SITE = {
       problem: "An abstract idea that needed to feel inevitable and premium.",
       result: "Immersive Three.js experience. Note: renders black under software WebGL — confirm on a real GPU before judging.",
       stack: ["Next.js", "Three.js", "GSAP", "Lenis"],
-      liveUrl: "", shot: "",
-      note: "Concept — needs a real-browser check",
+      liveUrl: "https://chronos-time-omega.vercel.app/", shot: "",
+      note: "Concept — 3D needs a real-GPU check",
       thumb: "studio", featured: true, cat: "Web", year: "2026"
     },
     {
@@ -107,8 +106,7 @@ window.SITE = {
       problem: "Mythology content usually reads like a textbook.",
       result: "A fly-through experience with realm navigation. Verified rendering in headless Chrome.",
       stack: ["React", "Three.js", "Framer Motion", "GSAP"],
-      liveUrl: "", shot: "pantheon",
-      note: "Concept — deploy pending",
+      liveUrl: "https://mythology-3d-iota.vercel.app/", shot: "pantheon",
       thumb: "studio", featured: true, cat: "Web", year: "2026"
     },
     {
@@ -119,8 +117,7 @@ window.SITE = {
       problem: "Small restaurants lose bookings to unanswered messages.",
       result: "Assistant completes bookings with ticket IDs. Verified end-to-end in testing.",
       stack: ["HTML", "CSS", "JavaScript"],
-      liveUrl: "", shot: "bistro",
-      note: "Demo — deploy pending",
+      liveUrl: "https://restaurant-assistant-bot.vercel.app/", shot: "bistro",
       thumb: "fire", featured: true, cat: "AI & Automation", year: "2026"
     }
   ],
@@ -128,9 +125,9 @@ window.SITE = {
   /* Archive: everything, lifetime */
   archive: [
     { img: "story",
-      title: "Story Factory — AI video pipeline", cat: "Video", desc: "Reddit story → script → AI scenes → TTS → stitched MP4. Produced a finished short plus a reusable n8n workflow.", purpose: "Prove an end-to-end AI video pipeline that outputs a finished short.", stack: ["Python", "n8n", "Gemini", "FFmpeg"], liveUrl: "", note: "Pipeline + MP4 on request", year: "2026" },
+      title: "Story Factory — AI video pipeline", cat: "Video", desc: "Reddit story → script → AI scenes → TTS → stitched MP4. Produced a finished short plus a reusable n8n workflow.", purpose: "Prove an end-to-end AI video pipeline that outputs a finished short.", stack: ["Python", "n8n", "Gemini", "FFmpeg"], liveUrl: "https://n8n-story-factory.vercel.app/demo/", year: "2026" },
     { img: "cleaning",
-      title: "Sparkle & Shine Cleaning Co.", cat: "Web", desc: "Cleaning-service site with services, booking and quote flows. Verified: 17 sections, zero errors.", purpose: "Template-family proof: services plus booking plus quotes for home services.", stack: ["Next.js", "React", "Tailwind"], liveUrl: "", note: "Demo — deploy pending", year: "2026" },
+      title: "Sparkle & Shine Cleaning Co.", cat: "Web", desc: "Cleaning-service site with services, booking and quote flows. Verified: 17 sections, zero errors.", purpose: "Template-family proof: services plus booking plus quotes for home services.", stack: ["Next.js", "React", "Tailwind"], liveUrl: "https://cleaning-service-one-lyart.vercel.app/", year: "2026" },
     { img: "demo-dental",
       title: "Bright Smile Dentary", cat: "Web", desc: "Premium dental-care demo: confident-smiles hero, booking flow.", purpose: "Dental-care concept with a confident booking flow.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://proper-demo-tan.vercel.app/", year: "2025" },
     { img: "demo-aether",
@@ -148,7 +145,7 @@ window.SITE = {
     { img: "demo-funngrov2",
       title: "Funngro Revamp v2", cat: "Web", desc: "Second design direction: light editorial theme, bento grids.", purpose: "Second design direction for the same revamp brief.", stack: ["Next.js", "TypeScript", "Tailwind"], liveUrl: "https://funngro-revamp-nito-v2.vercel.app/", year: "2026" },
     { img: "carousel",
-      title: "Carousel Generator", cat: "Design", desc: "Instagram carousel exporter: 7-slide trust-building post, PNG export.", purpose: "Lead-magnet tool: an exportable trust-building carousel.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "", note: "Local tool", year: "2026" }
+      title: "Carousel Generator", cat: "Design", desc: "Instagram carousel exporter: 7-slide trust-building post, PNG export.", purpose: "Lead-magnet tool: an exportable trust-building carousel.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://carousel-generator-sable.vercel.app/", year: "2026" }
   ],
 
   process: [
