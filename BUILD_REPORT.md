@@ -53,3 +53,13 @@ verified by eye (AURA, carousel spot-checked).
 - CHRONOS visuals (see above) — owner's real-browser check pending.
 - Production deploy + Formspree activation on new domain.
 - Safari/Firefox, 200% zoom, screen reader, field vitals.
+
+## 6. Postscript — stale-cache incident (fixed)
+
+Symptom: pushes stopped changing the live site. Root cause: `vercel.json`
+sent `immutable` + 1yr for unversioned `/css/*` and `/js/*`, so edge and
+browsers pinned old bundles (proven: plain URL served a 7h-old copy while
+a cache-busted URL served the fresh deploy). Fix: `max-age=3600,
+must-revalidate` for css/js (images keep immutable). Applied to all three
+Vercel projects. If the live site ever looks stale: hard-refresh
+(Ctrl+Shift+R); if still stale, Vercel dashboard → purge CDN cache.
