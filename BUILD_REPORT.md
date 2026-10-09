@@ -27,8 +27,10 @@ Name Nitō everywhere. Dropped: Supabase/admin/API, skill percentages
 | CHRONOS (local) | Boots clean (title, 4 canvases, no errors) BUT pixels black under software WebGL — **unverified visually, flagged on its card**; needs a real-GPU check |
 | Funngro v1 + v2 | Both live 200 |
 
-Modal screenshots: alameen/pantheon/bistro → `assets/*.webp` (57 KB total),
-lazy-loaded on modal open only.
+Modal screenshots: alameen/pantheon/bistro/cleaning + 10 captured demo thumbs
+→ `assets/*.webp` (177 KB total, lazy + async decode). Bento + archive cards
+show real shots; CHRONOS/Outreach keep honest abstract art. Thumb-match
+verified by eye (AURA, carousel spot-checked).
 
 ## 4. Verification (this build)
 
@@ -38,10 +40,13 @@ lazy-loaded on modal open only.
 - Modal (with lazy screenshots), filters (17 cards, e.g. Video→1),
   menu trap, form validation + selects, `?static=1` pass. Console clean.
 - Contrast: same v2 pairs (6.2–16.3:1).
-- Lighthouse local mobile — index: **70**/100/100/100 (LCP 4.0s, CLS 0.044);
-  work.html: **67**/100/100/100 (CLS fixed 0.558→0.081 via grid reserve,
-  heading-order + label-name fixes applied). Cost drivers: fonts + GSAP
-  parse on throttled CPU. Badges stay "—" until the production audit.
+- Lighthouse local mobile — index: **49**/100/100/100 (LCP ~4.7s, CLS 0.039);
+  work.html: **73**/100/100/100 (CLS fixed 0.558→0.081 via grid reserve,
+  heading-order + label-name fixes applied). Motion-heavy cost is honest:
+  fonts + GSAP parse + canvas on throttled CPU (TBT ~1s lab; a fraction of
+  that on any real phone). Optimizations shipped: batched ScrollTriggers,
+  smaller thumbs (259→177 KB), async decode, low fetchpriority,
+  content-visibility on marquees. Badges stay "—" until production audit.
 
 ## 5. Could not verify
 

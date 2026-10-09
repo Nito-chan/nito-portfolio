@@ -116,17 +116,21 @@
     });
   }
 
-  /* Reveals */
-  gsap.utils.toArray("[data-reveal]").forEach(function (el) {
-    var vars = { opacity: 1, duration: 0.9, ease: "power3.out" };
-    var kind = el.getAttribute("data-reveal");
-    if (kind === "left") vars.x = 0;
-    else if (kind === "right") vars.x = 0;
-    else if (kind === "scale") vars.scale = 1;
-    else vars.y = 0;
-    gsap.to(el, Object.assign({
-      scrollTrigger: { trigger: el, start: "top 88%", once: true }
-    }, vars));
+  /* Reveals — batched by kind (one ScrollTrigger per group, not per node) */
+  ["up", "left", "right", "scale"].forEach(function (kind) {
+    var nodes = gsap.utils.toArray('[data-reveal="' + kind + '"]');
+    if (!nodes.length) return;
+    ScrollTrigger.batch(nodes, {
+      start: "top 88%",
+      once: true,
+      onEnter: function (batch) {
+        var vars = { opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, overwrite: true };
+        if (kind === "left" || kind === "right") vars.x = 0;
+        else if (kind === "scale") vars.scale = 1;
+        else vars.y = 0;
+        gsap.to(batch, vars);
+      }
+    });
   });
 
   /* Progress rail */

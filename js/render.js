@@ -61,8 +61,12 @@
     var b = $("bento");
     if (b && S.projects) {
       b.innerHTML = S.projects.slice(0, 6).map(function (p, i) {
+        var shot = p.img
+          ? '<img class="cell-shot" src="assets/' + esc(p.img) + '.webp" alt="" loading="lazy" decoding="async" fetchpriority="low" width="640" height="360">'
+          : "";
         return '<article class="cell ' + spans[i % 6] + '" data-reveal="up" data-tilt>' +
           '<div class="cell-art" style="background:' + (artFor[p.thumb] || artFor.ember) + '" aria-hidden="true"></div>' +
+          shot +
           '<div class="cell-body"><h3>' + esc(p.title) + "</h3><p>" + esc(p.summary) + "</p>" +
           '<div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem">' + chips(p.stack) + "</div>" +
           '<div class="cell-cta"><button class="btn btn-ghost btn-small case-btn" data-case="' + i + '">Open case study</button>' +
@@ -75,29 +79,38 @@
     }
   } catch (e) {}
 
-  /* Case modal (index) */
-  document.addEventListener("click", function (e) {
-    var btn = e.target.closest(".case-btn");
-    if (!btn || !S.projects) return;
-    var p = S.projects[+btn.getAttribute("data-case")];
-    if (!p) return;
+  /* Case modal (both pages): fills shared #caseModal */
+  function fillModal(p) {
     $("modalTitle").textContent = p.title;
-    $("modalSummary").textContent = p.summary;
-    $("modalProblem").textContent = p.problem;
-    $("modalRole").textContent = p.role;
-    $("modalResult").textContent = p.result;
+    $("modalSummary").textContent = p.summary || p.desc || "";
+    if ($("modalPurpose")) $("modalPurpose").textContent = p.purpose || "";
+    if ($("modalRowPurpose")) $("modalRowPurpose").hidden = !p.purpose;
+    if ($("modalProblem")) $("modalProblem").textContent = p.problem || "";
+    if ($("modalRole")) $("modalRole").textContent = p.role || "";
+    if ($("modalResult")) $("modalResult").textContent = p.result || "";
+    ["modalRowProblem", "modalRowRole", "modalRowResult"].forEach(function (id) {
+      if ($(id)) $(id).hidden = !(p.problem && p.role && p.result);
+    });
     $("modalStack").innerHTML = chips(p.stack);
     var links = $("modalLinks");
     links.innerHTML = p.liveUrl
       ? '<a class="text-link" href="' + esc(p.liveUrl) + '">Live site →</a>' + (p.codeUrl ? ' <a class="text-link" href="' + esc(p.codeUrl) + '">Code →</a>' : "")
       : '<span class="chip">' + esc(p.note || "Private build") + "</span>";
     var shot = $("modalShot");
+    var img = p.shot || p.img;
     if (shot) {
-      if (p.shot) { shot.src = "assets/" + p.shot + ".webp"; shot.alt = p.title + " screenshot"; shot.hidden = false; }
+      if (img) { shot.src = "assets/" + img + ".webp"; shot.alt = p.title + " screenshot"; shot.hidden = false; }
       else shot.hidden = true;
     }
     var m = $("caseModal");
     if (m && m.showModal) m.showModal();
+  }
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".case-btn");
+    if (btn && S.projects) {
+      var p = S.projects[+btn.getAttribute("data-case")];
+      if (p) fillModal(p);
+    }
   });
 
   /* Process / skills / tiers / quotes / faq */
@@ -201,27 +214,35 @@
     if (grid && S.archive) {
       var cats = ["All", "Web", "AI & Automation", "Video", "Design"];
       var active = "All";
+      var lastPainted = [];
       function itemCat(x) { return x.cat || "Web"; }
       function allItems() {
         var feat = (S.projects || []).map(function (p) {
-          return { title: p.title, desc: p.summary, stack: p.stack, liveUrl: p.liveUrl, note: p.note, cat: p.cat || "Web", year: p.year || "2026" };
+          return { title: p.title, desc: p.summary, purpose: p.purpose, problem: p.problem, role: p.role, result: p.result, stack: p.stack, liveUrl: p.liveUrl, codeUrl: p.codeUrl, note: p.note, shot: p.shot, img: p.img, cat: p.cat || "Web", year: p.year || "2026" };
         });
         return feat.concat(S.archive);
       }
-      function card(x) {
+      function shotImg(x) {
+        if (!x.img) return "";
+        return '<img class="cell-shot" src="assets/' + esc(x.img) + '.webp" alt="" loading="lazy" decoding="async" fetchpriority="low" width="640" height="360">';
+      }
+      function card(x, i) {
         return '<article class="cell acell" data-cat="' + esc(itemCat(x)) + '">' +
+          shotImg(x) +
           '<div class="cell-body"><p class="ameta"><span>' + esc(itemCat(x)) + '</span><span> · </span><span>' + esc(x.year || "") + "</span>" +
           (x.note ? ' <span class="chip">' + esc(x.note) + "</span>" : "") + "</p>" +
           "<h2>" + esc(x.title) + "</h2><p>" + esc(x.desc) + "</p>" +
           '<div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem">' + chips(x.stack) + "</div>" +
-          '<div class="cell-cta">' + (x.liveUrl ? '<a class="text-link" href="' + esc(x.liveUrl) + '">Visit live →</a>' : "") + "</div>" +
+          '<div class="cell-cta"><button type="button" class="cell-open case-arch" data-arch="' + i + '">Details</button>' +
+          (x.liveUrl ? '<a class="text-link arch-visit" href="' + esc(x.liveUrl) + '">Visit live →</a>' : "") + "</div>" +
           "</div></article>";
       }
       function paint() {
-        var items = allItems().filter(function (x) { return active === "All" || itemCat(x) === active; });
-        grid.innerHTML = items.map(card).join("");
+        lastPainted = allItems().filter(function (x) { return active === "All" || itemCat(x) === active; });
+        window.__lastPainted = lastPainted;
+        grid.innerHTML = lastPainted.map(card).join("");
         var c = $("archCount");
-        if (c) c.textContent = items.length + " projects — filter, read, visit.";
+        if (c) c.textContent = lastPainted.length + " projects — tap a card for details.";
       }
       if (bar) {
         bar.innerHTML = cats.map(function (c) {
@@ -242,4 +263,13 @@
       paint();
     }
   } catch (e) {}
+
+  /* Archive Details buttons → shared modal */
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".case-arch");
+    if (!btn) return;
+    var list = window.__lastPainted || [];
+    var p = list[+btn.getAttribute("data-arch")];
+    if (p) fillModal(p);
+  });
 })();

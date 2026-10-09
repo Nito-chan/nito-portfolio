@@ -92,6 +92,23 @@
     </div>
   </footer>
 
+  <dialog class="modal" id="caseModal" aria-labelledby="modalTitle">
+    <div class="modal-body">
+      <h3 id="modalTitle"></h3>
+      <p id="modalSummary" style="color:var(--text-muted)"></p>
+      <img id="modalShot" alt="" style="border-radius:12px;border:1px solid var(--border)" hidden>
+      <dl>
+        <div id="modalRowPurpose"><dt>PURPOSE</dt><dd id="modalPurpose"></dd></div>
+        <div id="modalRowProblem"><dt>PROBLEM</dt><dd id="modalProblem"></dd></div>
+        <div id="modalRowRole"><dt>WHAT I DID</dt><dd id="modalRole"></dd></div>
+        <div id="modalRowResult"><dt>RESULT</dt><dd id="modalResult"></dd></div>
+      </dl>
+      <div class="tool-row" id="modalStack" style="display:flex;gap:.45rem;flex-wrap:wrap"></div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap" id="modalLinks"></div>
+      <form method="dialog"><button class="btn btn-ghost btn-small" type="submit">Close</button></form>
+    </div>
+  </dialog>
+
   <script src="js/config.js" defer></script>
   <script src="js/render.js" defer></script>
   <script src="js/main.js" defer></script>

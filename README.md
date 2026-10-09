@@ -7,7 +7,8 @@ enhancement). Static, deploys on Vercel.
 Two pages sharing one core:
 - `index.html` — best 6 projects, services, process, pricing, reviews, FAQ, contact.
 - `work.html` — the lifetime collection: everything, filterable (All / Web /
-  AI & Automation / Video / Design), each card readable + visitable.
+  AI & Automation / Video / Design); every card opens a detail modal
+  (description, purpose, stack) with a live-visit link.
 
 ## Content model (`js/config.js`)
 

@@ -45,7 +45,8 @@
   var modal = document.getElementById("caseModal");
   var opener = null;
   document.addEventListener("click", function (e) {
-    if (e.target.closest(".case-btn")) opener = e.target.closest(".case-btn");
+    var t = e.target.closest(".case-btn, .case-arch");
+    if (t) opener = t;
   });
   if (modal) modal.addEventListener("close", function () { if (opener && opener.focus) opener.focus(); });
 

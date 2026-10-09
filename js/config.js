@@ -36,7 +36,7 @@ window.SITE = {
     stats: [
       { value: 30, suffix: "+", label: "projects shipped" },
       { value: 20, suffix: "+", label: "happy clients" },
-      { value: 4, suffix: "+", label: "years experience" }
+      { value: 5, suffix: "+", label: "years of craft" }
     ]
   },
 
@@ -54,8 +54,9 @@ window.SITE = {
   /* Front page: best 6 */
   projects: [
     {
+      img: "alameen",
       title: "Al Ameen Dental Clinic",
-      summary: "Real client site: full clinic website for Aden, Yemen — booking, services, team, gallery, reviews, Arabic tagline.",
+      summary: "Real client site: full clinic website for Aden, Yemen — booking, services, team, gallery, reviews, Arabic tagline.", purpose: "Give a busy surgical practice an online front door: services, booking and trust.",
       role: "Design and build (Next.js), solo",
       problem: "A busy implant and surgery practice with no online presence; patients called for everything.",
       result: "Complete bilingual site with booking flow and patient reviews. Verified: 16 sections, zero console errors.",
@@ -66,7 +67,7 @@ window.SITE = {
     },
     {
       title: "CHRONOS — Operating System for Time",
-      summary: "Luxury 3D concept brand site: timeline simulator, GSAP scroll scenes, full brand system.",
+      summary: "Luxury 3D concept brand site: timeline simulator, GSAP scroll scenes, full brand system.", purpose: "Turn an abstract idea about time into a premium interactive brand.",
       role: "Design and build, solo concept",
       problem: "An abstract idea that needed to feel inevitable and premium.",
       result: "Immersive Three.js experience. Note: renders black under software WebGL — confirm on a real GPU before judging.",
@@ -76,8 +77,9 @@ window.SITE = {
       thumb: "studio", featured: true, cat: "Web", year: "2026"
     },
     {
+      img: "funngro",
       title: "Funngro Revamp",
-      summary: "Submitted revamp of India's teen-earning platform: Home + Brands pages, SEO audit, Lighthouse evidence.",
+      summary: "Submitted revamp of India's teen-earning platform: Home + Brands pages, SEO audit, Lighthouse evidence.", purpose: "Prove revamp skill with measurable SEO and performance evidence.",
       role: "Revamp + audit, solo",
       problem: "Assignment brief: improve a real product page with measurable quality.",
       result: "Shipped with SEO audit report and passing scores. Two design directions (v1 + v2) both live.",
@@ -88,7 +90,7 @@ window.SITE = {
     },
     {
       title: "Client Outreach v2",
-      summary: "Deliverability-first outreach automation for cleaning/dental niches: scraping, validation, 4-step sequences, DM queue, ~300 mails/day.",
+      summary: "Deliverability-first outreach automation for cleaning/dental niches: scraping, validation, 4-step sequences, DM queue, ~300 mails/day.", purpose: "Replace manual prospecting with a safe, scalable sending machine.",
       role: "Design and build, solo",
       problem: "Manual prospecting doesn't scale; guessed emails destroy deliverability.",
       result: "Quarantine + validation pipeline, admin dashboard, dry-run safety. Internal tool.",
@@ -98,8 +100,9 @@ window.SITE = {
       thumb: "pulse", featured: true, cat: "AI & Automation", year: "2026"
     },
     {
+      img: "pantheon",
       title: "Pantheon — Chronicles of the Infinite",
-      summary: "Immersive 3D mythology scroll: Greek, Norse, Egyptian and Japanese realms with synth audio and codex.",
+      summary: "Immersive 3D mythology scroll: Greek, Norse, Egyptian and Japanese realms with synth audio and codex.", purpose: "Make mythology feel like a film instead of a textbook.",
       role: "Design and build, solo concept",
       problem: "Mythology content usually reads like a textbook.",
       result: "A fly-through experience with realm navigation. Verified rendering in headless Chrome.",
@@ -109,8 +112,9 @@ window.SITE = {
       thumb: "studio", featured: true, cat: "Web", year: "2026"
     },
     {
+      img: "bistro",
       title: "Nitō's Bistro + Assistant",
-      summary: "Restaurant page with a working rule-based chat assistant: menu cards, booking state machine, ticket numbers.",
+      summary: "Restaurant page with a working rule-based chat assistant: menu cards, booking state machine, ticket numbers.", purpose: "Show how a small restaurant stops losing bookings to unanswered messages.",
       role: "Design and build, solo demo",
       problem: "Small restaurants lose bookings to unanswered messages.",
       result: "Assistant completes bookings with ticket IDs. Verified end-to-end in testing.",
@@ -123,17 +127,28 @@ window.SITE = {
 
   /* Archive: everything, lifetime */
   archive: [
-    { title: "Story Factory — AI video pipeline", cat: "Video", desc: "Reddit story → script → AI scenes → TTS → stitched MP4. Produced a finished short plus a reusable n8n workflow.", stack: ["Python", "n8n", "Gemini", "FFmpeg"], liveUrl: "", note: "Pipeline + MP4 on request", year: "2026" },
-    { title: "Sparkle & Shine Cleaning Co.", cat: "Web", desc: "Cleaning-service site with services, booking and quote flows. Verified: 17 sections, zero errors.", stack: ["Next.js", "React", "Tailwind"], liveUrl: "", note: "Demo — deploy pending", year: "2026" },
-    { title: "Bright Smile Dentary", cat: "Web", desc: "Premium dental-care demo: confident-smiles hero, booking flow.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://proper-demo-tan.vercel.app/", year: "2025" },
-    { title: "AETHER — Immersive Brand", cat: "Web", desc: "Narrative-driven brand experience for a tech startup.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://immersive-seven-puce.vercel.app/", year: "2025" },
-    { title: "AEON — Luxury E-Commerce", cat: "Web", desc: "Visionary luxury storefront with streamlined checkout.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://futuristic-ten.vercel.app/", year: "2025" },
-    { title: "Design Portfolio Demo", cat: "Design", desc: "Grid-driven agency portfolio with scroll animations.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://port-gamma-amber.vercel.app/", year: "2025" },
-    { title: "L'Éclat — Fine Dining Demo", cat: "Web", desc: "Elegant restaurant experience with reservations.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://restaurant-rho-three-64.vercel.app/", year: "2025" },
-    { title: "AURA — Fashion & Lifestyle", cat: "Design", desc: "Mood-driven brand microsite.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://ecom-blush-ten.vercel.app/", year: "2025" },
-    { title: "FLARE — Street Food & Culture", cat: "Web", desc: "High-energy food brand page with events and gallery.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://fast-food-weld.vercel.app/", year: "2025" },
-    { title: "Funngro Revamp v2", cat: "Web", desc: "Second design direction: light editorial theme, bento grids.", stack: ["Next.js", "TypeScript", "Tailwind"], liveUrl: "https://funngro-revamp-nito-v2.vercel.app/", year: "2026" },
-    { title: "Carousel Generator", cat: "Design", desc: "Instagram carousel exporter: 7-slide trust-building post, PNG export.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "", note: "Local tool", year: "2026" }
+    { img: "story",
+      title: "Story Factory — AI video pipeline", cat: "Video", desc: "Reddit story → script → AI scenes → TTS → stitched MP4. Produced a finished short plus a reusable n8n workflow.", purpose: "Prove an end-to-end AI video pipeline that outputs a finished short.", stack: ["Python", "n8n", "Gemini", "FFmpeg"], liveUrl: "", note: "Pipeline + MP4 on request", year: "2026" },
+    { img: "cleaning",
+      title: "Sparkle & Shine Cleaning Co.", cat: "Web", desc: "Cleaning-service site with services, booking and quote flows. Verified: 17 sections, zero errors.", purpose: "Template-family proof: services plus booking plus quotes for home services.", stack: ["Next.js", "React", "Tailwind"], liveUrl: "", note: "Demo — deploy pending", year: "2026" },
+    { img: "demo-dental",
+      title: "Bright Smile Dentary", cat: "Web", desc: "Premium dental-care demo: confident-smiles hero, booking flow.", purpose: "Dental-care concept with a confident booking flow.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://proper-demo-tan.vercel.app/", year: "2025" },
+    { img: "demo-aether",
+      title: "AETHER — Immersive Brand", cat: "Web", desc: "Narrative-driven brand experience for a tech startup.", purpose: "Narrative brand experience for a fictional tech startup.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://immersive-seven-puce.vercel.app/", year: "2025" },
+    { img: "demo-aeon",
+      title: "AEON — Luxury E-Commerce", cat: "Web", desc: "Visionary luxury storefront with streamlined checkout.", purpose: "Luxury storefront demo with a streamlined checkout.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://futuristic-ten.vercel.app/", year: "2025" },
+    { img: "demo-port",
+      title: "Design Portfolio Demo", cat: "Design", desc: "Grid-driven agency portfolio with scroll animations.", purpose: "Agency portfolio demo with scroll choreography.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://port-gamma-amber.vercel.app/", year: "2025" },
+    { img: "demo-restaurant",
+      title: "L'Éclat — Fine Dining Demo", cat: "Web", desc: "Elegant restaurant experience with reservations.", purpose: "Fine-dining demo with a reservation flow.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://restaurant-rho-three-64.vercel.app/", year: "2025" },
+    { img: "demo-aura",
+      title: "AURA — Fashion & Lifestyle", cat: "Design", desc: "Mood-driven brand microsite.", purpose: "Mood-driven fashion microsite demo.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://ecom-blush-ten.vercel.app/", year: "2025" },
+    { img: "demo-flare",
+      title: "FLARE — Street Food & Culture", cat: "Web", desc: "High-energy food brand page with events and gallery.", purpose: "High-energy food brand page with events and gallery.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "https://fast-food-weld.vercel.app/", year: "2025" },
+    { img: "demo-funngrov2",
+      title: "Funngro Revamp v2", cat: "Web", desc: "Second design direction: light editorial theme, bento grids.", purpose: "Second design direction for the same revamp brief.", stack: ["Next.js", "TypeScript", "Tailwind"], liveUrl: "https://funngro-revamp-nito-v2.vercel.app/", year: "2026" },
+    { img: "carousel",
+      title: "Carousel Generator", cat: "Design", desc: "Instagram carousel exporter: 7-slide trust-building post, PNG export.", purpose: "Lead-magnet tool: an exportable trust-building carousel.", stack: ["HTML", "CSS", "JavaScript"], liveUrl: "", note: "Local tool", year: "2026" }
   ],
 
   process: [
@@ -146,7 +161,7 @@ window.SITE = {
   skills: [
     { group: "Build", items: [{ name: "HTML / CSS", level: "Daily" }, { name: "JavaScript", level: "Daily" }, { name: "React / Next.js", level: "Comfortable" }, { name: "WordPress / Webflow", level: "Daily" }] },
     { group: "AI & Automation", items: [{ name: "Make.com", level: "Daily" }, { name: "AI integration (GPT, Claude)", level: "Comfortable" }, { name: "Chatbots", level: "Comfortable" }, { name: "n8n / Zapier", level: "Comfortable" }] },
-    { group: "Craft", items: [{ name: "Figma / UI design", level: "Comfortable" }, { name: "Video editing", level: "Comfortable" }, { name: "SEO basics", level: "Comfortable" }] }
+    { group: "Craft", items: [{ name: "Figma / UI design", level: "Comfortable" }, { name: "Video editing", level: "Daily" }, { name: "SEO basics", level: "Comfortable" }] }
   ],
 
   tiers: [
@@ -207,9 +222,11 @@ window.SITE = {
   ],
 
   experience: [
-    { period: "2023 – Present", role: "Senior Freelance Developer & AI Specialist", org: "Self-employed — Remote Worldwide" },
-    { period: "2021 – 2023", role: "Frontend Developer & Designer", org: "Digital Agency — Full-time" },
-    { period: "2020 – 2021", role: "UI/UX Designer", org: "Startup Studio — Contract" }
+    { period: "2 yrs", role: "Web development & landing pages", org: "Freelance — client sites" },
+    { period: "2 yrs", role: "AI tools & automation", org: "Freelance — Make.com, GPT, workflows" },
+    { period: "1 yr", role: "AI chatbots", org: "Freelance — support & booking bots" },
+    { period: "5 yrs", role: "Mobile video editing", org: "Reels, promos, shorts" },
+    { period: "1 yr", role: "PC video editing", org: "Premiere Pro, After Effects" }
   ],
 
   about: {

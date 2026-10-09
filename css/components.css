@@ -262,6 +262,8 @@ html.is-static .meter-fill { transition: none; }
 }
 
 /* ---------- Nitō additions: services, archive, tiers, experience ---------- */
+/* offscreen rendering skip (no ScrollTriggers inside these — safe) */
+.marquee, .quotes-wrap { content-visibility: auto; contain-intrinsic-size: auto 120px; }
 .services-grid { display: grid; gap: 1.1rem; grid-template-columns: minmax(0, 1fr); }
 .services-grid > * { min-width: 0; }
 .svc {
@@ -276,6 +278,23 @@ html.is-static .meter-fill { transition: none; }
 .view-all { text-decoration: none; min-height: 0; justify-content: center; text-align: center; }
 .view-all:hover { border-color: var(--ember); }
 .view-all h3 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); }
+
+/* real screenshot thumbs (lazy, aspect-locked) */
+.cell-shot {
+  position: relative; z-index: 1;
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top;
+  border-radius: 12px; border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+/* stretched Details button: whole card tappable, links stay clickable */
+.cell-open {
+  background: none; border: none; padding: 0; cursor: pointer;
+  color: var(--text); font-weight: 700; font-size: 0.95rem; text-align: left;
+  text-decoration: underline; text-underline-offset: 4px;
+}
+.cell-open:hover { color: var(--ember); }
+.cell-open::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.arch-visit { position: relative; z-index: 2; }
 
 .archive-grid { display: grid; gap: 1.1rem; grid-template-columns: minmax(0, 1fr); }
 .archive-grid > * { min-width: 0; }
