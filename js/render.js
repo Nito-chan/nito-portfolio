@@ -60,7 +60,7 @@
   try {
     var b = $("bento");
     if (b && S.projects) {
-      b.innerHTML = S.projects.slice(0, 6).map(function (p, i) {
+      b.innerHTML = S.projects.slice(0, 7).map(function (p, i) {
         var shot = p.img
           ? '<img class="cell-shot" src="assets/' + esc(p.img) + '.webp" alt="" loading="lazy" decoding="async" fetchpriority="low" width="640" height="360">'
           : "";
@@ -73,8 +73,8 @@
           (p.liveUrl ? '<a class="text-link" href="' + esc(p.liveUrl) + '">Live →</a>' : '<span class="chip">' + esc(p.note || "Private") + "</span>") +
           "</div></div></article>";
       }).join("") +
-      '<a class="cell span-6 view-all" data-reveal="up" href="work.html"><div class="cell-body">' +
-      "<h3>View the lifetime collection →</h3><p>Demos, concepts, automation and experiments — " + (S.archive ? S.archive.length + 6 : "17") + " projects and counting.</p>" +
+      '<a class="cell span-2 view-all" data-reveal="up" href="work.html"><div class="cell-body">' +
+       "<h3>View the lifetime collection →</h3><p>Demos, concepts, automation and experiments — " + (S.archive ? S.archive.length + S.projects.slice(0, 7).length : "18") + " projects and counting.</p>" +
       "</div></a>";
     }
   } catch (e) {}

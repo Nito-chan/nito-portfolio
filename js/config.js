@@ -51,8 +51,20 @@ window.SITE = {
     { name: "Video Editing", desc: "Reels, promos and brand videos — including AI-assisted short-form pipelines.", tags: ["Premiere Pro", "After Effects", "Reels"] }
   ],
 
-  /* Front page: best 6 */
+  /* Front page: best first */
   projects: [
+    {
+      img: "sneaker",
+      title: "Sole Saga — Anime Sneakers",
+      summary: "Anime-inspired sneaker brand: animated hero, anatomy, colorways, collab roster and drop waitlist.",
+      purpose: "Turn sneaker shopping into an anime episode: story-first product drama.",
+      role: "Design and build (Vite + TypeScript), solo concept",
+      problem: "Sneaker pages list specs; nobody feels anything.",
+      result: "A cinematic drop page with frame animation and waitlist. Verified: 7 sections, zero console errors.",
+      stack: ["Vite", "TypeScript", "CSS", "Video"],
+      liveUrl: "https://sole-saga-sneakers.vercel.app/", shot: "sneaker",
+      thumb: "ember", featured: true, cat: "Web", year: "2026"
+    },
     {
       img: "alameen",
       title: "Al Ameen Dental Clinic",
