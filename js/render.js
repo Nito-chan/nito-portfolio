@@ -20,13 +20,6 @@
     if (k && S.hero.kicker) k.textContent = S.hero.kicker;
     var sub = $("heroSub");
     if (sub && S.hero.subline) sub.textContent = S.hero.subline;
-    var st = $("heroStats");
-    if (st && S.hero.stats) {
-      st.innerHTML = S.hero.stats.map(function (x) {
-        return "<div><b><span data-count=\"" + x.value + "\">" + x.value + "</span>" +
-          (x.suffix ? "<em>" + esc(x.suffix) + "</em>" : "") + "</b><span>" + esc(x.label) + "</span></div>";
-      }).join("");
-    }
   } catch (e) {}
 
   /* Marquee */
@@ -60,7 +53,7 @@
   try {
     var b = $("bento");
     if (b && S.projects) {
-      b.innerHTML = S.projects.slice(0, 7).map(function (p, i) {
+      b.innerHTML = S.projects.map(function (p, i) {
         var shot = p.img
           ? '<img class="cell-shot" src="assets/' + esc(p.img) + '.webp" alt="" loading="lazy" decoding="async" fetchpriority="low" width="640" height="360">'
           : "";
@@ -74,7 +67,7 @@
           "</div></div></article>";
       }).join("") +
       '<a class="cell span-2 view-all" data-reveal="up" href="work.html"><div class="cell-body">' +
-       "<h3>View the lifetime collection →</h3><p>Demos, concepts, automation and experiments — " + (S.archive ? S.archive.length + S.projects.slice(0, 7).length : "18") + " projects and counting.</p>" +
+       "<h3>View the lifetime collection →</h3><p>Demos, concepts, automation and experiments — " + (S.archive ? S.archive.length : 0) + " projects and counting.</p>" +
       "</div></a>";
     }
   } catch (e) {}
@@ -212,15 +205,18 @@
     var grid = $("archiveGrid");
     var bar = $("filterBar");
     if (grid && S.archive) {
-      var cats = ["All", "Web", "AI & Automation", "Video", "Design"];
+      var cats = ["All", "Web", "AI & Automation", "Video", "Design", "Games"];
       var active = "All";
       var lastPainted = [];
       function itemCat(x) { return x.cat || "Web"; }
       function allItems() {
-        var feat = (S.projects || []).map(function (p) {
-          return { title: p.title, desc: p.summary, purpose: p.purpose, problem: p.problem, role: p.role, result: p.result, stack: p.stack, liveUrl: p.liveUrl, codeUrl: p.codeUrl, note: p.note, shot: p.shot, img: p.img, cat: p.cat || "Web", year: p.year || "2026" };
+        var seen = new Set();
+        var out = [];
+        (S.archive || []).forEach(function (x) {
+          var key = (x.title + "|" + (x.liveUrl || "")).toLowerCase();
+          if (!seen.has(key)) { seen.add(key); out.push(x); }
         });
-        return feat.concat(S.archive);
+        return out;
       }
       function shotImg(x) {
         if (!x.img) return "";
@@ -230,6 +226,7 @@
         return '<article class="cell acell" data-cat="' + esc(itemCat(x)) + '">' +
           shotImg(x) +
           '<div class="cell-body"><p class="ameta"><span>' + esc(itemCat(x)) + '</span><span> · </span><span>' + esc(x.year || "") + "</span>" +
+          (x.label ? ' <span class="chip">' + esc(x.label) + "</span>" : "") +
           (x.note ? ' <span class="chip">' + esc(x.note) + "</span>" : "") + "</p>" +
           "<h2>" + esc(x.title) + "</h2><p>" + esc(x.desc) + "</p>" +
           '<div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem">' + chips(x.stack) + "</div>" +
