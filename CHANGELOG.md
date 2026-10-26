@@ -34,4 +34,22 @@ business strategy are not published with the site.
 
 ## 2026-10-26 — Phase 2: project inventory and ranking
 
-- Pending.
+- Inventoried 41 public GitHub repos and 33 local project folders: 52
+  canonical/excluded rows, 37 ranked portfolio candidates, 15 excluded.
+- Found that five of the 31 GitHub candidates are one product: the
+  home-service demo kit (HVAC, plumbing, roofing, electrician, pest). Treated
+  as one front-page card, not five.
+- Ranked the work on visual craft, local-service relevance, proof/honesty,
+  completeness, performance/a11y and story. Recommended front page: Home-Service
+  Demo Kit, Purana Bazaar, Slotwise, and Al Ameen Dental (conditional on fixes).
+- Buckets: FRONT PAGE 7 repos (5 demos + Purana + Slotwise) plus 1 conditional;
+  WORK ARCHIVE 4; LAB 15; RETIRE 10.
+- Flagged the remaining unsupported proof: Al Ameen (mislabelled client,
+  placeholders, unverified stats, corrupt images), USA Dental (invented stats),
+  Cleaning Service (invented stats, 18.9 s LCP), Restaurant Assistant (invented
+  4.9/1200+ rating). Also documented the `client-outreach` 500, the
+  `n8n-story-factory` root 404, and the dead Clearview original URL.
+- Secrets scan: 0 high-confidence findings; 14 env files not read. Reports and
+  tooling remain local-only in `portfolio-review/` (gitignored).
+- No site code changed, pushed or deployed. Next: Nitō approves the ranking,
+  then Phase 3 starts.
