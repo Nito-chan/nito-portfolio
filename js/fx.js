@@ -116,22 +116,73 @@
     });
   }
 
-  /* Reveals — batched by kind (one ScrollTrigger per group, not per node) */
-  ["up", "left", "right", "scale"].forEach(function (kind) {
-    var nodes = gsap.utils.toArray('[data-reveal="' + kind + '"]');
-    if (!nodes.length) return;
-    ScrollTrigger.batch(nodes, {
-      start: "top 88%",
-      once: true,
-      onEnter: function (batch) {
+  /* Work deck: sticky panels + progress scrub */
+  try {
+    var workDeck = document.querySelector(".work-deck");
+    var workBar = document.getElementById("workProgress");
+    if (workDeck) {
+      var workMM = gsap.matchMedia();
+      workMM.add("(min-width: 960px)", function () {
+        var panels = gsap.utils.toArray(".work-panel");
+        panels.forEach(function (panel) {
+          gsap.fromTo(panel,
+            { y: 70, rotateX: 3, transformPerspective: 1200, opacity: 0.3 },
+            {
+              y: 0, rotateX: 0, opacity: 1, ease: "none",
+              scrollTrigger: {
+                trigger: panel,
+                start: "top 95%",
+                end: "top 35%",
+                scrub: true
+              }
+            });
+        });
+        if (workBar) {
+          ScrollTrigger.create({
+            trigger: workDeck,
+            start: "top 85%",
+            end: "bottom bottom",
+            scrub: true,
+            onUpdate: function (self) {
+              workBar.style.transform = "scaleX(" + self.progress + ")";
+            }
+          });
+        }
+        return function () {
+          if (workBar) workBar.style.transform = "";
+        };
+      });
+    }
+  } catch (e) {}
+
+  /* Reveals — IntersectionObserver, not ScrollTrigger. This stays reliable
+     when a visitor lands mid-page (hash link, refresh, fast jump) instead of
+     scrolling there from the top. */
+  try {
+    ["up", "left", "right", "scale"].forEach(function (kind) {
+      var nodes = gsap.utils.toArray('[data-reveal="' + kind + '"]');
+      if (!nodes.length) return;
+      if (!("IntersectionObserver" in window)) {
+        gsap.set(nodes, { opacity: 1, x: 0, y: 0, scale: 1 });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        var batch = entries.filter(function (en) { return en.isIntersecting; }).map(function (en) {
+          io.unobserve(en.target);
+          return en.target;
+        });
+        if (!batch.length) return;
         var vars = { opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, overwrite: true };
         if (kind === "left" || kind === "right") vars.x = 0;
         else if (kind === "scale") vars.scale = 1;
         else vars.y = 0;
         gsap.to(batch, vars);
-      }
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.01 });
+      nodes.forEach(function (node) { io.observe(node); });
     });
-  });
+  } catch (e) {
+    try { gsap.set('[data-reveal]', { opacity: 1, x: 0, y: 0, scale: 1 }); } catch (err) {}
+  }
 
   /* Progress rail */
   gsap.to("#progressBar", {

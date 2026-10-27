@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Nitō — Websites that feel like films</title>
-  <meta name="description" content="Nitō builds local-business websites with WhatsApp booking and AI automation add-ons. Web dev, AI workflows, design and video from India.">
+  <meta name="description" content="Nitō builds local-business websites with WhatsApp booking, AI automation and lead workflows. Web development, design and video from India.">
   <link rel="canonical" href="https://nito.dpdns.org/">
   <meta name="theme-color" content="#0A0A0E">
   <meta property="og:type" content="website">
@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
-  <link rel="stylesheet" href="css/tokens.css?v=2">
-  <link rel="stylesheet" href="css/base.css?v=2">
-  <link rel="stylesheet" href="css/components.css?v=2">
+  <link rel="stylesheet" href="css/tokens.css?v=5">
+  <link rel="stylesheet" href="css/base.css?v=5">
+  <link rel="stylesheet" href="css/components.css?v=5">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Nitō","jobTitle":"Full-Stack Engineer & AI Architect","url":"https://nito.dpdns.org/","sameAs":["https://github.com/Nito-chan","https://www.linkedin.com/in/nito-dev","https://www.instagram.com/nitodev.official/"]}
   </script>
@@ -79,20 +79,19 @@
           <p class="scroll-hint" aria-hidden="true">scroll for the show</p>
         </div>
         <div data-hero>
-          <div class="term" role="img" aria-label="Deployment log showing a perfect launch">
+          <div class="term" role="img" aria-label="Build log showing a site, automation and chatbot ready">
             <div class="term-bar" aria-hidden="true"><span class="traffic"><i></i><i></i><i></i></span><span>launch.log — live</span></div>
             <div class="term-body" aria-hidden="true">
               <div class="ln"><span class="ok">✓</span><span>site shipped · demos live</span></div>
-              <div class="ln"><span class="ok">✓</span><span>make.com scenario deployed · ready for your project</span></div>
-              <div class="ln"><span class="ok">✓</span><span>chatbot online · booking tickets live</span></div>
+              <div class="ln"><span class="ok">✓</span><span>make.com workflows · dry-run tested</span></div>
+              <div class="ln"><span class="ok">✓</span><span>AI chatbot · booking flow ready</span></div>
               <div class="ln"><span class="wr">→</span><span>your project here_</span></div>
             </div>
-            <div class="term-badges">
-              <div><b id="badgePerf">—</b><span>Lighthouse</span></div>
-              <div><b id="badgeA11y">—</b><span>A11y</span></div>
-              <div><b id="badgeWeight">—</b><span>Weight</span></div>
+            <div class="term-stack" aria-hidden="true">
+              <span class="chip">HTML</span><span class="chip">GSAP</span><span class="chip">Make.com</span><span class="chip">Next.js</span>
             </div>
           </div>
+          <div class="hero-reel" id="heroReel" aria-hidden="true"></div>
         </div>
       </div>
     </section>
@@ -114,14 +113,42 @@
       </div>
     </section>
 
-    <section class="section" id="work" aria-labelledby="work-h">
+    <section class="section work-scrub" id="work" aria-labelledby="work-h">
       <div class="wrap">
-        <div class="section-head" data-reveal="up">
-          <p class="kicker">Best work</p>
-          <h2 id="work-h">Four scenes, zero filler</h2>
-          <p>Curated highlights. The full lifetime collection lives on the archive page.</p>
+        <div class="section-head work-head" data-reveal="up">
+          <div>
+            <p class="kicker">Best work</p>
+            <h2 id="work-h">Six scenes. One scroll.</h2>
+            <p>Scroll to turn the page. Each project opens with its strength, goal and vision — no filler.</p>
+          </div>
+          <p class="work-hint" aria-hidden="true">scroll to scrub ↓</p>
         </div>
-        <div class="bento" id="bento"></div>
+        <div class="work-progress" aria-hidden="true"><i id="workProgress"></i></div>
+      </div>
+      <div class="work-deck" id="workDeck"></div>
+      <div class="wrap work-foot">
+        <a class="text-link" href="work.html">See all 30 projects →</a>
+      </div>
+    </section>
+
+    <section class="section lab-teaser" id="lab-teaser" aria-labelledby="lab-teaser-h">
+      <div class="wrap">
+        <div class="lab-teaser-card" data-reveal="up">
+          <div class="lab-teaser-copy">
+            <p class="kicker">The Lab</p>
+            <h2 id="lab-teaser-h">Playable experiments.</h2>
+            <p>Original games and prototypes. BELLWARD is live; TEMPO, HEFT and LOOPBOUND are playable local builds waiting for public URLs.</p>
+            <div class="lab-teaser-actions">
+              <a class="btn btn-ember magnetic" href="lab.html">Enter the Lab</a>
+              <span class="chip">4 games · 1 live</span>
+            </div>
+          </div>
+          <a class="lab-teaser-screen" href="lab.html" aria-label="Open the Lab and play BELLWARD">
+            <img src="assets/shots/bellward-metroidvania.webp" alt="BELLWARD title screen" loading="lazy" decoding="async" width="1200" height="750">
+            <span class="lab-teaser-badge"><i></i> LIVE · BELLWARD</span>
+            <span class="lab-teaser-play" aria-hidden="true">PLAY</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -152,8 +179,8 @@
       <div class="wrap">
         <div class="section-head" data-reveal="up">
           <p class="kicker">Pricing</p>
-          <h2 id="pricing-h">Fixed prices, no fog</h2>
-          <p>INR equivalents shown smaller — approximate at ₹83/$. Invoices for everything.</p>
+          <h2 id="pricing-h">Three ways in. No fog.</h2>
+          <p>USD first, INR equivalents at ₹83/$. Custom work is scoped after a call. Invoices for everything.</p>
         </div>
         <div class="tiers" id="tiers" data-reveal="up"></div>
       </div>
@@ -176,10 +203,11 @@
           <h2 id="about-h">Hi, I'm Nitō</h2>
         </div>
         <div class="about-grid" data-reveal="up">
-          <div class="avatar" aria-hidden="true">N</div>
+          <div class="avatar" aria-hidden="true"><span>N</span><small>DEV.FOLIO</small></div>
           <div class="about-copy" id="aboutCopy">
             <p>I'm Nitō — developer, automation nerd, designer.</p>
-            <p><a class="text-link" href="#">Download resume →</a></p>
+            <p>One person, whole pipeline: design, code, automation, video.</p>
+            <p><a class="text-link" href="mailto:nitodev.official@gmail.com">Ask for my CV →</a></p>
           </div>
         </div>
         <ol class="exp-list" id="expList" data-reveal="up"></ol>
@@ -265,6 +293,9 @@
       <p id="modalSummary" style="color:var(--text-muted)"></p>
       <img id="modalShot" alt="" style="border-radius:12px;border:1px solid var(--border)" hidden>
       <dl>
+        <div id="modalRowStrength"><dt>STRENGTH</dt><dd id="modalStrength"></dd></div>
+        <div id="modalRowGoal"><dt>GOAL</dt><dd id="modalGoal"></dd></div>
+        <div id="modalRowVision"><dt>VISION</dt><dd id="modalVision"></dd></div>
         <div id="modalRowPurpose"><dt>PURPOSE</dt><dd id="modalPurpose"></dd></div>
         <div id="modalRowProblem"><dt>PROBLEM</dt><dd id="modalProblem"></dd></div>
         <div id="modalRowRole"><dt>WHAT I DID</dt><dd id="modalRole"></dd></div>
@@ -274,15 +305,15 @@
       <div style="display:flex;gap:1rem;flex-wrap:wrap" id="modalLinks">
         <a class="text-link" id="modalLive" href="#">Live site →</a>
       </div>
-      <form method="dialog"><button class="btn btn-ghost btn-small" type="submit">Close</button></form>
+      <form method="dialog"><button class="btn btn-ghost btn-small" id="caseClose" type="submit" autofocus>Close</button></form>
     </div>
   </dialog>
 
-  <script src="js/config.js?v=2" defer></script>
-  <script src="js/render.js?v=2" defer></script>
-  <script src="js/main.js?v=2" defer></script>
+  <script src="js/config.js?v=5" defer></script>
+  <script src="js/render.js?v=5" defer></script>
+  <script src="js/main.js?v=5" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-  <script src="js/fx.js?v=2" defer></script>
+  <script src="js/fx.js?v=5" defer></script>
 </body>
 </html>

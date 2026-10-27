@@ -50,13 +50,6 @@
   });
   if (modal) modal.addEventListener("close", function () { if (opener && opener.focus) opener.focus(); });
 
-  /* Badges — filled after audit (BUILD_REPORT) */
-  try {
-    document.getElementById("badgePerf").textContent = "—";
-    document.getElementById("badgeA11y").textContent = "—";
-    document.getElementById("badgeWeight").textContent = "—";
-  } catch (e) {}
-
   /* Form (Formspree AJAX, same contract as v1) */
   var form = document.getElementById("contactForm");
   if (form) {

@@ -9,7 +9,12 @@
     });
   }
   function $(id) { return document.getElementById(id); }
-  try { document.title = (document.querySelector("h1") && location.pathname.indexOf("work") > -1) ? "All work — Nitō" : S.meta.title; } catch (e) { document.title = S.meta.title; }
+  try {
+    var path = location.pathname;
+    if (path.indexOf("work") > -1) document.title = "All work — Nitō";
+    else if (path.indexOf("lab") > -1) document.title = "Lab — Nitō";
+    else document.title = S.meta.title;
+  } catch (e) { document.title = S.meta.title; }
   function chips(arr) { return (arr || []).map(function (t) { return '<span class="chip">' + esc(t) + "</span>"; }).join(""); }
 
   /* Hero */
@@ -20,6 +25,14 @@
     if (k && S.hero.kicker) k.textContent = S.hero.kicker;
     var sub = $("heroSub");
     if (sub && S.hero.subline) sub.textContent = S.hero.subline;
+    var reel = $("heroReel");
+    if (reel && S.hero.reel) {
+      reel.innerHTML = S.hero.reel.map(function (x, i) {
+        return '<div class="hero-reel-frame" style="--r:' + (i - 1) + '">' +
+          '<img src="assets/' + esc(x.img) + '.webp" alt="" loading="lazy" decoding="async" width="640" height="400">' +
+          '<span>' + esc(x.label) + "</span></div>";
+      }).join("");
+    }
   } catch (e) {}
 
   /* Marquee */
@@ -41,34 +54,38 @@
     }
   } catch (e) {}
 
-  /* Bento: 6 featured + view-all */
-  var artFor = {
-    ember: "radial-gradient(80% 90% at 70% 20%,rgb(255 92 26/.5),transparent),radial-gradient(60% 60% at 20% 90%,rgb(255 92 26/.25),transparent)",
-    pulse: "repeating-linear-gradient(115deg,transparent 0 18px,rgb(45 212 191/.14) 18px 20px),radial-gradient(70% 80% at 30% 20%,rgb(45 212 191/.3),transparent)",
-    studio: "radial-gradient(60% 70% at 80% 10%,rgb(139 92 246/.45),transparent),radial-gradient(50% 50% at 15% 90%,rgb(255 92 26/.3),transparent)",
-    field: "linear-gradient(180deg,transparent 55%,rgb(255 92 26/.25)),repeating-linear-gradient(0deg,transparent 0 26px,rgb(255 255 255/.05) 26px 27px)",
-    fire: "radial-gradient(70% 80% at 50% 100%,rgb(255 92 26/.4),transparent),radial-gradient(40% 40% at 80% 10%,rgb(255 180 80/.25),transparent)"
-  };
-  var spans = ["span-4 cell-ember", "span-2 cell-teal", "span-3 cell-violet", "span-3 cell-fire", "span-2 cell-teal", "span-4 cell-ember"];
+  /* Work scrub: 6 case-study panels */
   try {
-    var b = $("bento");
-    if (b && S.projects) {
-      b.innerHTML = S.projects.map(function (p, i) {
-        var shot = p.img
-          ? '<img class="cell-shot" src="assets/' + esc(p.img) + '.webp" alt="" loading="lazy" decoding="async" fetchpriority="low" width="640" height="360">'
-          : "";
-        return '<article class="cell ' + spans[i % 6] + '" data-reveal="up" data-tilt>' +
-          '<div class="cell-art" style="background:' + (artFor[p.thumb] || artFor.ember) + '" aria-hidden="true"></div>' +
-          shot +
-          '<div class="cell-body"><h3>' + esc(p.title) + "</h3><p>" + esc(p.summary) + "</p>" +
-          '<div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem">' + chips(p.stack) + "</div>" +
-          '<div class="cell-cta"><button class="btn btn-ghost btn-small case-btn" data-case="' + i + '">Open case study</button>' +
-          (p.liveUrl ? '<a class="text-link" href="' + esc(p.liveUrl) + '">Live →</a>' : '<span class="chip">' + esc(p.note || "Private") + "</span>") +
-          "</div></div></article>";
-      }).join("") +
-      '<a class="cell span-2 view-all" data-reveal="up" href="work.html"><div class="cell-body">' +
-       "<h3>View the lifetime collection →</h3><p>Demos, concepts, automation and experiments — " + (S.archive ? S.archive.length : 0) + " projects and counting.</p>" +
-      "</div></a>";
+    var wd = $("workDeck");
+    if (wd && S.projects) {
+      var total = S.projects.length;
+      wd.innerHTML = S.projects.map(function (p, i) {
+        return '<article class="work-panel" data-accent="' + esc(p.accent || "ember") + '" style="--z:' + (10 + i) + '" aria-labelledby="scene-' + i + '">' +
+          '<div class="work-panel-media">' +
+            '<div class="work-frame">' +
+              '<div class="work-frame-bar" aria-hidden="true"><span class="work-dots"><i></i><i></i><i></i></span><span class="work-url">' + esc(p.domain || "live") + '</span><span class="work-live">LIVE</span></div>' +
+              '<img src="assets/' + esc(p.img) + '.webp" alt="' + esc(p.title) + ' screenshot" loading="' + (i === 0 ? "eager" : "lazy") + '" decoding="async" width="1200" height="750">' +
+            '</div>' +
+            '<span class="work-scene-no" aria-hidden="true">0' + (i + 1) + ' / 0' + total + '</span>' +
+          '</div>' +
+          '<div class="work-panel-copy">' +
+            '<p class="work-cat">' + esc(p.cat) + '</p>' +
+            '<h3 id="scene-' + i + '">' + esc(p.title) + '</h3>' +
+            '<p class="work-sub">' + esc(p.subtitle) + '</p>' +
+            '<p class="work-summary">' + esc(p.summary) + '</p>' +
+            '<dl class="work-case">' +
+              '<div><dt>Strength</dt><dd>' + esc(p.strength) + '</dd></div>' +
+              '<div><dt>Goal</dt><dd>' + esc(p.goal) + '</dd></div>' +
+              '<div><dt>Vision</dt><dd>' + esc(p.vision) + '</dd></div>' +
+            '</dl>' +
+            '<div class="work-tags">' + chips(p.stack) + '</div>' +
+            '<div class="work-actions">' +
+              (p.liveUrl ? '<a class="btn btn-ember btn-small" href="' + esc(p.liveUrl) + '" target="_blank" rel="noopener">Visit live →</a>' : "") +
+              '<button type="button" class="btn btn-ghost btn-small case-btn" data-case="' + i + '">Open case study</button>' +
+              '<span class="chip work-label">' + esc(p.label) + '</span>' +
+            '</div>' +
+          '</div></article>';
+      }).join("");
     }
   } catch (e) {}
 
@@ -76,18 +93,28 @@
   function fillModal(p) {
     $("modalTitle").textContent = p.title;
     $("modalSummary").textContent = p.summary || p.desc || "";
+    var hasCase = !!(p.strength || p.goal || p.vision);
+
+    if ($("modalStrength")) $("modalStrength").textContent = p.strength || "";
+    if ($("modalGoal")) $("modalGoal").textContent = p.goal || "";
+    if ($("modalVision")) $("modalVision").textContent = p.vision || "";
+    ["modalRowStrength", "modalRowGoal", "modalRowVision"].forEach(function (id) {
+      if ($(id)) $(id).hidden = !hasCase || !p[id.replace("modalRow", "").toLowerCase()];
+    });
+
     if ($("modalPurpose")) $("modalPurpose").textContent = p.purpose || "";
-    if ($("modalRowPurpose")) $("modalRowPurpose").hidden = !p.purpose;
     if ($("modalProblem")) $("modalProblem").textContent = p.problem || "";
     if ($("modalRole")) $("modalRole").textContent = p.role || "";
     if ($("modalResult")) $("modalResult").textContent = p.result || "";
-    ["modalRowProblem", "modalRowRole", "modalRowResult"].forEach(function (id) {
-      if ($(id)) $(id).hidden = !(p.problem && p.role && p.result);
+    ["modalRowPurpose", "modalRowProblem", "modalRowResult"].forEach(function (id) {
+      if ($(id)) $(id).hidden = hasCase || !(p.problem && p.role && p.result);
     });
+    if ($("modalRowRole")) $("modalRowRole").hidden = !p.role;
+
     $("modalStack").innerHTML = chips(p.stack);
     var links = $("modalLinks");
     links.innerHTML = p.liveUrl
-      ? '<a class="text-link" href="' + esc(p.liveUrl) + '">Live site →</a>' + (p.codeUrl ? ' <a class="text-link" href="' + esc(p.codeUrl) + '">Code →</a>' : "")
+      ? '<a class="text-link" href="' + esc(p.liveUrl) + '" target="_blank" rel="noopener">Live site →</a>' + (p.codeUrl ? ' <a class="text-link" href="' + esc(p.codeUrl) + '">Code →</a>' : "")
       : '<span class="chip">' + esc(p.note || "Private build") + "</span>";
     var shot = $("modalShot");
     var img = p.shot || p.img;
@@ -170,13 +197,19 @@
   try {
     var copy = $("aboutCopy");
     if (copy && S.about) {
+      var aboutMeta = [S.person.location, "Web / AI / Design / Video", S.person.availability && S.person.availability.text]
+        .filter(Boolean)
+        .map(function (t) { return '<span class="chip">' + esc(t) + "</span>"; })
+        .join("");
       copy.innerHTML = S.about.paragraphs.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") +
-        '<p><a class="text-link" href="' + esc(S.person.resumeUrl) + '">Download resume →</a></p>';
+        '<p class="about-meta">' + aboutMeta + "</p>" +
+        '<p><a class="text-link" href="mailto:' + esc(S.person.email) + '">Ask for my CV →</a></p>';
     }
     var ex = $("expList");
     if (ex && S.experience) {
-      ex.innerHTML = S.experience.map(function (x) {
-        return "<li><span>" + esc(x.period) + "</span><div><strong>" + esc(x.role) + "</strong><br><span style='color:var(--text-muted)'>" + esc(x.org) + "</span></div></li>";
+      ex.innerHTML = S.experience.map(function (x, i) {
+        var n = String(i + 1).padStart(2, "0");
+        return "<li><span>" + n + "</span><div><strong>" + esc(x.role) + "</strong><br><span style='color:var(--text-muted)'>" + esc(x.org) + "</span></div></li>";
       }).join("");
     }
   } catch (e) {}
@@ -220,7 +253,7 @@
       }
       function shotImg(x) {
         if (!x.img) return "";
-        return '<img class="cell-shot" src="assets/' + esc(x.img) + '.webp" alt="" loading="lazy" decoding="async" fetchpriority="low" width="640" height="360">';
+        return '<img class="cell-shot" src="assets/' + esc(x.img) + '.webp" alt="Screenshot of ' + esc(x.title) + '" loading="lazy" decoding="async" fetchpriority="low" width="640" height="360">';
       }
       function card(x, i) {
         return '<article class="cell acell" data-cat="' + esc(itemCat(x)) + '">' +
@@ -231,7 +264,7 @@
           "<h2>" + esc(x.title) + "</h2><p>" + esc(x.desc) + "</p>" +
           '<div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem">' + chips(x.stack) + "</div>" +
           '<div class="cell-cta"><button type="button" class="cell-open case-arch" data-arch="' + i + '">Details</button>' +
-          (x.liveUrl ? '<a class="text-link arch-visit" href="' + esc(x.liveUrl) + '">Visit live →</a>' : "") + "</div>" +
+          (x.liveUrl ? '<a class="text-link arch-visit" href="' + esc(x.liveUrl) + '" target="_blank" rel="noopener">Visit live →</a>' : "") + "</div>" +
           "</div></article>";
       }
       function paint() {
@@ -239,7 +272,7 @@
         window.__lastPainted = lastPainted;
         grid.innerHTML = lastPainted.map(card).join("");
         var c = $("archCount");
-        if (c) c.textContent = lastPainted.length + " projects — tap a card for details.";
+        if (c) c.textContent = lastPainted.length + " projects with live links — tap a card for details.";
       }
       if (bar) {
         bar.innerHTML = cats.map(function (c) {
@@ -258,6 +291,40 @@
         });
       }
       paint();
+    }
+  } catch (e) {}
+
+  /* Lab page: arcade cabinets */
+  try {
+    var labGrid = $("labGrid");
+    if (labGrid && S.lab) {
+      labGrid.innerHTML = S.lab.map(function (g, i) {
+        var isLive = g.status === "live" && g.liveUrl;
+        var action = isLive
+          ? '<a class="btn btn-arcade" href="' + esc(g.liveUrl) + '" target="_blank" rel="noopener" aria-label="Play ' + esc(g.title) + ' (opens live site)">' + esc(g.action) + " →</a>"
+          : '<span class="btn btn-arcade is-disabled" aria-disabled="true">' + esc(g.action) + "</span>";
+        return '<article class="cabinet" data-status="' + esc(g.status) + '" style="--cab-accent:' + esc(g.accent) + '">' +
+          '<div class="cabinet-marquee">' +
+            '<span class="cabinet-led" aria-hidden="true"></span>' +
+            '<h3 class="cabinet-title">' + esc(g.title) + "</h3>" +
+            '<span class="cabinet-badge ' + (isLive ? "is-live" : "is-local") + '">' + esc(g.statusLabel) + "</span>" +
+          "</div>" +
+          '<div class="cabinet-screen">' +
+            '<img src="assets/' + esc(g.img) + '.webp" alt="' + esc(g.title) + ' game screenshot" loading="' + (i === 0 ? "eager" : "lazy") + '" decoding="async" width="1200" height="750">' +
+            '<span class="cabinet-scan" aria-hidden="true"></span>' +
+            '<span class="cabinet-play" aria-hidden="true">▶</span>' +
+          "</div>" +
+          '<div class="cabinet-body">' +
+            '<p class="cabinet-genre">' + esc(g.genre) + "</p>" +
+            '<p class="cabinet-desc">' + esc(g.desc) + "</p>" +
+            '<div class="cabinet-tags">' + chips(g.stack) + "</div>" +
+            '<div class="cabinet-actions">' + action +
+              '<span class="cabinet-note">' + esc(g.note) + "</span>" +
+            "</div>" +
+          "</div>" +
+          '<div class="cabinet-foot" aria-hidden="true"><span>INSERT COIN</span><span>1 PLAYER</span></div>' +
+        "</article>";
+      }).join("");
     }
   } catch (e) {}
 

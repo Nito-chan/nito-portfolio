@@ -53,3 +53,29 @@ business strategy are not published with the site.
   tooling remain local-only in `portfolio-review/` (gitignored).
 - No site code changed, pushed or deployed. Next: Nitō approves the ranking,
   then Phase 3 starts.
+
+## 2026-10-27 — Phase 3: front page, work archive and Lab
+
+- Rebuilt the front page around a six-scene scroll-scrub deck: Home-Service
+  Demo Kit, Purana Bazaar, Al Ameen Dental, Slotwise, BELLWARD and Funngro.
+  Each opens a case-study modal with strength, goal and vision.
+- Added a front-page Lab teaser and a separate arcade-style Lab page with four
+  cabinets: BELLWARD (live), TEMPO, HEFT and LOOPBOUND (playable local builds,
+  public URLs pending). Real gameplay screenshots are used where available.
+- Rebuilt the work archive with all 30 complete projects that have live URLs,
+  including legacy demos. Every card has a real screenshot, live link, stack
+  and an honest demo/concept label. Filters cover Web, AI & Automation, Video,
+  Design and Games.
+- Added USD-first pricing: Launch $150 (≈ ₹12,500), Studio $400 (≈ ₹33,000)
+  and Custom “Name your price”. AI automation sits inside Studio, not a
+  separate add-on.
+- Optimized every project and game screenshot to WebP and fixed image aspect
+  handling so screenshots are no longer stretched or side-cropped.
+- Fixed the process section staying invisible after a hash load or refresh by
+  switching reveal triggers from ScrollTrigger batches to IntersectionObserver.
+- Fixed the Lab hero grid on mobile/tablet, the work-page h1 overflow at 375,
+  pricing CTA alignment, static/reduced-motion fallbacks and modal focus.
+- QA at 1440/768/375: no console errors, failed requests or horizontal
+  overflow; filters, case modal, mobile menu, FAQ, reduced motion and forced
+  static mode checked.
+- No push or deployment. Preview approval remains with Nitō.
