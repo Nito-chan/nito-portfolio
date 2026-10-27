@@ -25,14 +25,6 @@
     if (k && S.hero.kicker) k.textContent = S.hero.kicker;
     var sub = $("heroSub");
     if (sub && S.hero.subline) sub.textContent = S.hero.subline;
-    var reel = $("heroReel");
-    if (reel && S.hero.reel) {
-      reel.innerHTML = S.hero.reel.map(function (x, i) {
-        return '<div class="hero-reel-frame" style="--r:' + (i - 1) + '">' +
-          '<img src="assets/' + esc(x.img) + '.webp" alt="" loading="lazy" decoding="async" width="640" height="400">' +
-          '<span>' + esc(x.label) + "</span></div>";
-      }).join("");
-    }
   } catch (e) {}
 
   /* Marquee */
@@ -40,7 +32,7 @@
     var mt = $("marqueeTrack");
     if (mt && S.marquee) {
       var items = S.marquee.map(function (m) { return "<span>" + esc(m) + "</span>"; }).join("");
-      mt.innerHTML = items + items;
+      mt.innerHTML = '<div class="marquee-group">' + items + '</div><div class="marquee-group" aria-hidden="true">' + items + "</div>";
     }
   } catch (e) {}
 

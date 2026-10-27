@@ -32,6 +32,7 @@ p { max-width: 65ch; }
 }
 
 .wrap { width: min(var(--max-w), 100% - 2.5rem); margin-inline: auto; }
+.svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 section { scroll-margin-top: calc(var(--header-h) + 12px); }
 .section { padding-block: clamp(4.5rem, 10vw, 8rem); position: relative; }
 .kicker {
@@ -65,5 +66,11 @@ html.is-static [data-reveal] { opacity: 1 !important; transform: none !important
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   html [data-reveal] { opacity: 1 !important; transform: none !important; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0.001ms !important; }
+}
+
+/* ?static=1: same final state as reduced motion, including CSS-only loops. */
+html.is-static *, html.is-static *::before, html.is-static *::after {
+  animation: none !important;
+  transition-duration: 0.001ms !important;
 }

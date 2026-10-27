@@ -79,3 +79,25 @@ business strategy are not published with the site.
   overflow; filters, case modal, mobile menu, FAQ, reduced motion and forced
   static mode checked.
 - No push or deployment. Preview approval remains with Nitō.
+
+## 2026-10-27 — Hero simplification and scroll performance
+
+- Restored the original hero layout: one message column plus the build-log
+  terminal. Removed the three-image reel and its config, render and CSS.
+- Replaced the per-frame aurora canvas with a static CSS gradient. Removed the
+  hero scrub parallax and the delayed hero intro so the headline, subline, CTAs
+  and stats are visible on first paint.
+- Restored honest hero stats: 30 live projects & demos, 4 original games,
+  1 person running the whole pipeline. No “plus” claims.
+- Marquee now uses two seamless groups (one `aria-hidden`), pauses when
+  offscreen or the tab is hidden, and still pauses on hover.
+- Removed `backdrop-filter` from the terminal and ghost buttons, dropped global
+  `will-change` from buttons, disabled header blur below 960px and reduced it
+  to 10px on desktop. Hid the decorative scroll hint below 960px.
+- `?static=1` and reduced motion now resolve every reveal and CSS loop to its
+  final visible state instead of leaving infinite animations running.
+- Bumped shared asset cache busters to `?v=6`.
+- Throttled scroll benchmark (1440×900, 4× CPU, 0→1800px): 8.0 FPS before,
+  ~24.4 FPS after, essentially the 25.3 FPS all-motion-off harness floor.
+  Static mode measured 31.6 FPS. No console errors or horizontal overflow at
+  1440/768/375.

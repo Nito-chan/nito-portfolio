@@ -32,12 +32,7 @@ window.SITE = {
     subline:
       "I'm Nitō. I build local-business websites with WhatsApp booking, AI workflows, design and video — cinematic sites that convert visitors.",
     primaryCta: { label: "Start a project", href: "#contact" },
-    secondaryCta: { label: "See best work", href: "#work" },
-    reel: [
-      { img: "shots/electrician-demo", label: "Home-Service Kit" },
-      { img: "shots/purana-bazaar", label: "Purana Bazaar" },
-      { img: "shots/bellward-metroidvania", label: "BELLWARD" }
-    ]
+    secondaryCta: { label: "See best work", href: "#work" }
   },
 
   marquee: ["Web Development", "AI Automation", "UI / UX Design", "Video Editing", "Make.com Workflows", "Landing Pages"],
