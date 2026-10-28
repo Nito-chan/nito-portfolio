@@ -185,7 +185,7 @@
     }
   } catch (e) {}
 
-  /* About + experience */
+  /* About */
   try {
     var copy = $("aboutCopy");
     if (copy && S.about) {
@@ -196,13 +196,6 @@
       copy.innerHTML = S.about.paragraphs.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") +
         '<p class="about-meta">' + aboutMeta + "</p>" +
         '<p><a class="text-link" href="mailto:' + esc(S.person.email) + '">Ask for my CV →</a></p>';
-    }
-    var ex = $("expList");
-    if (ex && S.experience) {
-      ex.innerHTML = S.experience.map(function (x, i) {
-        var n = String(i + 1).padStart(2, "0");
-        return "<li><span>" + n + "</span><div><strong>" + esc(x.role) + "</strong><br><span style='color:var(--text-muted)'>" + esc(x.org) + "</span></div></li>";
-      }).join("");
     }
   } catch (e) {}
 

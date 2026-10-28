@@ -332,14 +332,6 @@ window.SITE = {
     { q: "How can I pay?", a: "Cards via Stripe, PayPal, bank transfer, UPI, or Upwork/Fiverr milestones. Proper invoice every time. INR pricing is approximate at ₹83/$." }
   ],
 
-  experience: [
-    { role: "Web development & landing pages", org: "Freelance — client sites" },
-    { role: "AI tools & automation", org: "Freelance — Make.com, GPT, workflows" },
-    { role: "AI chatbots", org: "Freelance — support & booking bots" },
-    { role: "Mobile video editing", org: "Reels, promos, shorts" },
-    { role: "PC video editing", org: "Premiere Pro, After Effects" }
-  ],
-
   about: {
     paragraphs: [
       "I'm Nitō — developer, automation nerd, designer. I started rebuilding family shop pages; now I build cinematic sites and AI workflows for local businesses.",

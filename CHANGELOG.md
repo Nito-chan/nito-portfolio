@@ -101,3 +101,26 @@ business strategy are not published with the site.
   ~24.4 FPS after, essentially the 25.3 FPS all-motion-off harness floor.
   Static mode measured 31.6 FPS. No console errors or horizontal overflow at
   1440/768/375.
+
+## 2026-10-27 — Intro rebuilt around capabilities
+
+- Replaced the 01–05 experience list with six logo-led capability cards:
+  Build, Automate, Assist, Design, Edit and Learn.
+- Added a hidden SVG sprite with real tool marks for Next.js, Make, Figma and
+  Arduino, plus custom chat and film marks. No fake client logos.
+- Kept the sixth IoT/Arduino card deliberately low-emphasis with a “Learning”
+  tag. It is a single `<li>` and easy to remove.
+- The grid is static HTML (not config/render), so the core capabilities are
+  present without JavaScript and indexable.
+- Widened the about row to avatar + copy from 640px up; 150px/170px avatar
+  columns at tablet/desktop.
+- Tool chips are 0.72rem and category tags 0.7rem; every card tag/chip color
+  passes AA contrast on the card surface.
+- Removed the old `experience` config, render block and `.exp-list` CSS.
+- Bumped shared asset cache busters to `?v=9`.
+- QA at 1440/768/375: 6 cards, 6 logos, 18 tool chips, 3/2/1 columns, no
+  overflow, no broken images, no console/page/network errors; mobile menu,
+  FAQ, case modal, form validation, anchor navigation, `?static=1` and
+  reduced motion checked. Work page: 30 archive cards, filters 30→22; Lab:
+  4 cabinets.
+- No push or deployment. Preview approval remains with Nitō.
