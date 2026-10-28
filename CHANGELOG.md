@@ -124,3 +124,17 @@ business strategy are not published with the site.
   reduced motion checked. Work page: 30 archive cards, filters 30→22; Lab:
   4 cabinets.
 - No push or deployment. Preview approval remains with Nitō.
+
+## 2026-10-28 — Replace IoT card with launch & support
+
+- Removed the IoT/Arduino “Learning” card; hardware and IoT are not part of the
+  offer.
+- Added a sixth “Launch & support” card: domain setup, analytics, handover and
+  post-launch support. It matches the Launch tier and the process section.
+- Removed the Arduino sprite symbol, the learning-card styles and the dashed
+  treatment. The sixth card now uses the same solid card style as the rest.
+- Bumped shared asset cache busters to `?v=10`.
+- QA at 1440/768/375: 6 cards, 6 logos, 18 tool chips, 3/2/1 columns, no
+  overflow, no broken images, no console/page/network errors; card tag/chip
+  contrast passes AA. Work page and Lab unchanged.
+- No push or deployment. Preview approval remains with Nitō.
